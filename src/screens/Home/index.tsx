@@ -19,7 +19,10 @@ export function Home() {
     Alert.alert('Atenção', `Deseja Remover o participante ${name}?`, [
       {
         text: 'Sim',
-        onPress: () => Alert.alert('Sucesso!', 'Deletado.')
+        onPress: () => {
+          setParticipants(participants.filter(participant => participant !== name));
+          Alert.alert('Sucesso!', 'Deletado.');
+        }
       },
       {
         text: 'Não',
